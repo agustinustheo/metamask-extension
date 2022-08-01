@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $fa-font-path: 'fonts/fontawesome';
 
 @import '../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
@@ -59,6 +61,13 @@ $fa-font-path: 'fonts/fontawesome';
   font-style: italic;
   font-weight: 400;
   src: url('fonts/Euclid/EuclidCircularB-RegularItalic-WebXL.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Euclid';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/Euclid/EuclidCircularB-Medium.ttf') format('truetype');
 }
 
 @font-face {

@@ -144,6 +144,17 @@ export const TYPOGRAPHY = {
   Paragraph: 'p',
 };
 
+export const TEXT = {
+  DISPLAY_MD: 'display-md',
+  HEADING_LG: 'heading-lg',
+  HEADING_MD: 'heading-md',
+  HEADING_SM: 'heading-sm',
+  BODY_LG: 'body-lg-medium',
+  BODY_MD: 'body-md',
+  BODY_SM: 'body-sm',
+  BODY_XS: 'body-xs',
+};
+
 const NONE = 'none';
 
 export const SIZES = {
@@ -256,6 +267,7 @@ export const TEXT_ALIGN = {
 
 export const FONT_WEIGHT = {
   BOLD: 'bold',
+  MEDIUM: 'medium',
   NORMAL: 'normal',
 };
 

@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { shallowEqual, useSelector } from 'react-redux';
 import BigNumber from 'bignumber.js';
 import { isEqual, uniqBy } from 'lodash';
+import { formatIconUrlWithProxy } from '@metamask/controllers';
 import { getTokenFiatAmount } from '../helpers/utils/token-util';
 import {
   getTokenExchangeRates,
@@ -16,6 +17,7 @@ import { isSwapsDefaultTokenSymbol } from '../../shared/modules/swaps.utils';
 import { toChecksumHexAddress } from '../../shared/modules/hexstring-utils';
 import { TOKEN_BUCKET_PRIORITY } from '../../shared/constants/swaps';
 import { useEqualityCheck } from './useEqualityCheck';
+import { ETH } from 'ui/helpers/constants/common';
 
 export function getRenderableTokenData(
   token,
@@ -57,8 +59,11 @@ export function getRenderableTokenData(
   const tokenMetadata = shuffledTokenList.find(
     (tokenData) => tokenData.address === address?.toLowerCase(),
   );
-
-  const usedIconUrl = iconUrl || tokenMetadata?.iconUrl || token?.image;
+  const tokenIconUrl =
+    symbol === ETH
+      ? iconUrl
+      : formatIconUrlWithProxy({ chainId, tokenAddress: address || '' });
+  const usedIconUrl = tokenIconUrl || tokenMetadata?.iconUrl || token?.image;
   return {
     ...token,
     primaryLabel: symbol,

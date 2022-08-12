@@ -1,33 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import Box, { MultipleSizesAndAuto } from '../../ui/box';
 import {
-  COLORS,
   FONT_WEIGHT,
   FONT_STYLE,
-  TEXT_ALIGN,
   TEXT,
+  TEXT_ALIGN,
+  TEXT_TRANSFORM,
   OVERFLOW_WRAP,
+  TEXT_COLORS,
 } from '../../../helpers/constants/design-system';
-import Box, { MultipleSizesAndAuto } from '../../ui/box';
-
-export const ValidColors = [
-  COLORS.TEXT_DEFAULT,
-  COLORS.TEXT_ALTERNATIVE,
-  COLORS.TEXT_MUTED,
-  COLORS.OVERLAY_INVERSE,
-  COLORS.PRIMARY_DEFAULT,
-  COLORS.PRIMARY_INVERSE,
-  COLORS.SECONDARY_DEFAULT,
-  COLORS.SECONDARY_INVERSE,
-  COLORS.ERROR_DEFAULT,
-  COLORS.ERROR_INVERSE,
-  COLORS.SUCCESS_DEFAULT,
-  COLORS.SUCCESS_INVERSE,
-  COLORS.WARNING_INVERSE,
-  COLORS.INFO_DEFAULT,
-  COLORS.INFO_INVERSE,
-];
 
 export const ValidTags = [
   'dd',
@@ -50,9 +33,10 @@ export const ValidTags = [
 
 export const Text = ({
   variant = TEXT.BODY_MD,
-  color = COLORS.TEXT_DEFAULT,
+  color = TEXT_COLORS.TEXT_DEFAULT,
   fontWeight,
   fontStyle,
+  textTransform,
   align,
   overflowWrap,
   ellipsis,
@@ -77,12 +61,12 @@ export const Text = ({
     'text',
     className,
     `text--${variant}`,
-
     (strongTagFontWeight || fontWeight) &&
       `text--weight-${strongTagFontWeight || fontWeight}`,
-    fontStyle && `text--style-${fontStyle}`,
-    { [`text--ellipsis`]: Boolean(ellipsis) },
     {
+      [`text--style-${fontStyle}`]: Boolean(fontStyle),
+      [`text--ellipsis`]: Boolean(ellipsis),
+      [`text--${textTransform}`]: Boolean(textTransform),
       [`text--align-${align}`]: Boolean(align),
       [`text--color-${color}`]: Boolean(color),
       [`text--overflowwrap-${overflowWrap}`]: Boolean(overflowWrap),
@@ -126,7 +110,7 @@ Text.propTypes = {
    * The color of the Text component Should use the COLOR object from
    * ./ui/helpers/constants/design-system.js
    */
-  color: PropTypes.oneOf(ValidColors),
+  color: PropTypes.oneOf(TEXT_COLORS),
   /**
    * The font-weight of the Text component. Should use the FONT_WEIGHT object from
    * ./ui/helpers/constants/design-system.js
@@ -137,6 +121,11 @@ Text.propTypes = {
    * ./ui/helpers/constants/design-system.js
    */
   fontStyle: PropTypes.oneOf(Object.values(FONT_STYLE)),
+  /**
+   * The textTransform of the Text component. Should use the TEXT_TRANSFORM object from
+   * ./ui/helpers/constants/design-system.js
+   */
+  textTransform: PropTypes.oneOf(Object.values(TEXT_TRANSFORM)),
   /**
    * The text-align of the Text component. Should use the TEXT_ALIGN object from
    * ./ui/helpers/constants/design-system.js

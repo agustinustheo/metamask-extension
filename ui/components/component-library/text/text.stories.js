@@ -1,15 +1,19 @@
 import React from 'react';
 import {
   COLORS,
+  DISPLAY,
+  BACKGROUND_COLORS,
+  BORDER_COLORS,
   FONT_WEIGHT,
   FONT_STYLE,
+  TEXT_COLORS,
   TEXT_ALIGN,
   TEXT,
   OVERFLOW_WRAP,
   SIZES,
 } from '../../../helpers/constants/design-system';
 
-import { ValidColors, ValidTags, Text } from './text';
+import { ValidTags, Text } from './text';
 
 import README from './README.mdx';
 
@@ -31,7 +35,7 @@ export default {
     },
     color: {
       control: { type: 'select' },
-      options: ValidColors,
+      options: Object.values(TEXT_COLORS),
     },
     fontWeight: {
       control: { type: 'select' },
@@ -56,15 +60,56 @@ export default {
       control: { type: 'select' },
       options: ValidTags,
     },
-    margin: {
-      options: marginSizeKnobOptions,
-      control: 'select',
-    },
     className: {
       control: { type: 'text' },
     },
     children: {
       control: { type: 'text' },
+    },
+    display: {
+      options: Object.values(DISPLAY),
+      control: 'select',
+      table: { category: 'box props' },
+    },
+    backgroundColor: {
+      options: Object.values(BACKGROUND_COLORS),
+      control: 'select',
+      table: { category: 'box props' },
+    },
+    borderColor: {
+      options: Object.values(BORDER_COLORS),
+      control: 'select',
+      table: { category: 'box props' },
+    },
+    padding: {
+      options: sizeKnobOptions,
+      control: 'select',
+      table: { category: 'box props' },
+    },
+    margin: {
+      options: marginSizeKnobOptions,
+      control: 'select',
+      table: { category: 'box props' },
+    },
+    marginTop: {
+      options: marginSizeKnobOptions,
+      control: 'select',
+      table: { category: 'box props' },
+    },
+    marginRight: {
+      options: marginSizeKnobOptions,
+      control: 'select',
+      table: { category: 'box props' },
+    },
+    marginBottom: {
+      options: marginSizeKnobOptions,
+      control: 'select',
+      table: { category: 'box props' },
+    },
+    marginLeft: {
+      options: marginSizeKnobOptions,
+      control: 'select',
+      table: { category: 'box props' },
     },
   },
 };
@@ -129,20 +174,20 @@ export const Variant = (args) => (
 );
 
 export const Color = (args) => {
-  // Index of last valid color in ValidColors array
+  // Index of last valid color in TEXT_COLORS array
   const LAST_VALID_COLORS_ARRAY_INDEX = 16;
   return (
     <>
-      {Object.values(ValidColors).map((color, index) => {
+      {Object.values(TEXT_COLORS).map((color, index) => {
         if (index === LAST_VALID_COLORS_ARRAY_INDEX) {
           return (
             <React.Fragment key={color}>
               <Text
-                color={COLORS.TEXT_DEFAULT}
+                color={TEXT_COLORS.TEXT_DEFAULT}
                 align={TEXT_ALIGN.CENTER}
-                backgroundColor={COLORS.WARNING_MUTED}
+                backgroundColor={BACKGROUND_COLORS.WARNING_MUTED}
                 padding={4}
-                borderColor={COLORS.WARNING_DEFAULT}
+                borderColor={BORDER_COLORS.WARNING_DEFAULT}
               >
                 DEPRECATED COLORS - DO NOT USE
               </Text>
@@ -258,24 +303,15 @@ export const As = (args) => (
   </>
 );
 
-export const Margin = (args) => (
-  <Text {...args}>
-    This Typography component has a margin of {args.margin * 4}px
-  </Text>
-);
-
-Margin.args = {
-  margin: 4,
-};
-
 export const BoxProps = (args) => (
   <Text {...args}>This uses the boxProps prop</Text>
 );
 
 BoxProps.args = {
   color: COLORS.TEXT_DEFAULT,
-  backgroundColor: COLORS.PRIMARY_MUTED,
-  borderColor: COLORS.PRIMARY_DEFAULT,
+  backgroundColor: BACKGROUND_COLORS.BACKGROUND_ALTERNATIVE,
+  borderColor: BORDER_COLORS.ERROR_ALTERNATIVE,
   padding: 1,
+  margin: 2,
   borderRadius: SIZES.SM,
 };

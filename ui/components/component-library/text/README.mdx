@@ -42,7 +42,7 @@ import { TEXT } from '../../../helpers/constants/design-system';
 
 ### Color
 
-Use the `color` prop and the `COLOR` object from `./ui/helpers/constants/design-system.js` to change the color of the `Text` component.
+Use the `color` prop and the `TEXT_COLORS` object from `./ui/helpers/constants/design-system.js` to change the color of the `Text` component.
 
 
 <Canvas>
@@ -52,51 +52,51 @@ Use the `color` prop and the `COLOR` object from `./ui/helpers/constants/design-
 ```jsx
 // If importing from ui/components/app/[YOUR_COMPONENT]/ directory
 import Text from '../../ui/component-library/text';
-import { COLORS} from '../../../helpers/constants/design-system';
+import { TEXT_COLORS, BACKGROUND_COLORS } from '../../../helpers/constants/design-system';
 
-<Text color={COLORS.TEXT_DEFAULT}>
+<Text color={TEXT_COLORS.TEXT_DEFAULT}>
   text-default
 </Text>
-<Text color={COLORS.TEXT_ALTERNATIVE}>
+<Text color={TEXT_COLORS.TEXT_ALTERNATIVE}>
   text-alternative
 </Text>
-<Text color={COLORS.TEXT_MUTED}>
+<Text color={TEXT_COLORS.TEXT_MUTED}>
   text-muted
 </Text>
-<Text color={COLORS.OVERLAY_INVERSE} backgroundColor:{COLORS.OVERLAY_DEFAULT}>
+<Text color={TEXT_COLORS.OVERLAY_INVERSE} backgroundColor:{BACKGROUND_COLORS.OVERLAY_DEFAULT}>
   overlay-inverse
 </Text>
-<Text color={COLORS.PRIMARY_DEFAULT}>
+<Text color={TEXT_COLORS.PRIMARY_DEFAULT}>
   primary-default
 </Text>
-<Text color={COLORS.PRIMARY_INVERSE} backgroundColor:{COLORS.PRIMARY_DEFAULT}>
+<Text color={TEXT_COLORS.PRIMARY_INVERSE} backgroundColor:{BACKGROUND_COLORS.PRIMARY_DEFAULT}>
   primary-inverse
 </Text>
-<Text color={COLORS.SECONDARY_DEFAULT}>
+<Text color={TEXT_COLORS.SECONDARY_DEFAULT}>
   secondary-default
 </Text>
-<Text color={COLORS.SECONDARY_INVERSE} backgroundColor:{COLORS.SECONDARY_DEFAULT}>
+<Text color={TEXT_COLORS.SECONDARY_INVERSE} backgroundColor:{BACKGROUND_COLORS.SECONDARY_DEFAULT}>
   secondary-inverse
 </Text>
-<Text color={COLORS.ERROR_DEFAULT}>
+<Text color={TEXT_COLORS.ERROR_DEFAULT}>
   error-default
 </Text>
-<Text color={COLORS.ERROR_INVERSE} backgroundColor:{COLORS.ERROR_DEFAULT}>
+<Text color={TEXT_COLORS.ERROR_INVERSE} backgroundColor:{BACKGROUND_COLORS.ERROR_DEFAULT}>
   error-inverse
 </Text>
-<Text color={COLORS.SUCCESS_DEFAULT}>
+<Text color={TEXT_COLORS.SUCCESS_DEFAULT}>
   success-default
 </Text>
-<Text color={COLORS.SUCCESS_INVERSE} backgroundColor:{COLORS.SUCCESS_DEFAULT}>
+<Text color={TEXT_COLORS.SUCCESS_INVERSE} backgroundColor:{BACKGROUND_COLORS.SUCCESS_DEFAULT}>
   success-inverse
 </Text>
-<Text color={COLORS.WARNING_INVERSE} backgroundColor:{COLORS.WARNING_DEFAULT}>
+<Text color={TEXT_COLORS.WARNING_INVERSE} backgroundColor:{BACKGROUND_COLORS.WARNING_DEFAULT}>
   warning-inverse
 </Text>
-<Text color={COLORS.INFO_DEFAULT}>
+<Text color={TEXT_COLORS.INFO_DEFAULT}>
   info-default
 </Text>
-<Text color={COLORS.INFO_INVERSE} backgroundColor:{COLORS.INFO_DEFAULT}>
+<Text color={TEXT_COLORS.INFO_INVERSE} backgroundColor:{BACKGROUND_COLORS.INFO_DEFAULT}>
   info-inverse
 </Text>
 ```
@@ -301,21 +301,6 @@ Renders the html:
 <strong>strong</strong>
 ```
 
-### Margin
-
-Use the `margin` prop to change margin of the `Text` component. For more control over bounding box properties use the `boxProps` props object.
-
-<Canvas>
-  <Story id="ui-components-component-library-text-text-stories-js--margin" />
-</Canvas>
-
-```jsx
-// If importing from ui/components/app/[YOUR_COMPONENT]/ directory
-import Text from '../../ui/component-library/text';
-
-<Text margin={4}>This uses the boxProps prop</Text>;
-```
-
 ### Box Props
 
 Use any valid box props [Box](/?path=/story/ui-components-ui-box-box-stories-js--default-story) component props to the Text component. `boxProps` will overwrite the `margin` prop
@@ -327,12 +312,13 @@ Use any valid box props [Box](/?path=/story/ui-components-ui-box-box-stories-js-
 ```jsx
 // If importing from ui/components/app/[YOUR_COMPONENT]/ directory
 import Text from '../../ui/component-library/text';
-import { COLORS } from '../../../helpers/constants/design-system';
+import { COLORS, BACKGROUND_COLORS, BORDER_COLORS, SIZES } from '../../../helpers/constants/design-system';
 
 <Text
-  backgroundColor={COLORS.PRIMARY_MUTED}
-  borderColor={COLORS.PRIMARY_DEFAULT}
-  padding={4}
+  backgroundColor={BACKGROUND_COLORS.BACKGROUND_ALTERNATIVE}
+  borderColor={BORDER_COLORS.ERROR_ALTERNATIVE}
+  padding={1}
+  margin={2}
   borderRadius={SIZES.SM}
   color={COLORS.TEXT_DEFAULT}
 >

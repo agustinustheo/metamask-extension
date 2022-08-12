@@ -265,6 +265,12 @@ export const TEXT_ALIGN = {
   END: 'end',
 };
 
+export const TEXT_TRANSFORM = {
+  UPPERCASE: 'uppercase',
+  LOWERCASE: 'lowercase',
+  CAPITALIZE: 'capitalize',
+};
+
 export const FONT_WEIGHT = {
   BOLD: 'bold',
   MEDIUM: 'medium',
